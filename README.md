@@ -5,13 +5,13 @@ A tool that let's you analyze the dependencies and libraries of a deno script. I
 As an example, let's run the tool on the tool itself:
 
 ```sh
-deno run https://deno.land/x/depsinfo@1.0.0/depsinfo.ts https://deno.land/x/depsinfo@1.0.0/depsinfo.ts
+deno run https://deno.land/x/depsinfo/depsinfo.ts https://deno.land/x/depsinfo/depsinfo.ts
 ```
 
 Here's the output:
 
 ```
-https://deno.land/x/depsinfo@1.0.0/depsinfo.ts
+https://deno.land/x/depsinfo@1.0.2/depsinfo.ts
 
   Dependencies:
     contributed  isolated  shared   specifier
@@ -27,11 +27,11 @@ https://deno.land/x/depsinfo@1.0.0/depsinfo.ts
       ↳ https://deno.land/x/cliffy@v0.25.6/command/deps.ts
         ↳ https://deno.land/x/cliffy@v0.25.6/command/command.ts
           ↳ https://deno.land/x/cliffy@v0.25.6/command/mod.ts
-            ↳ https://deno.land/x/depsinfo@1.0.0/deps/cliffy_command.ts
-              ↳ https://deno.land/x/depsinfo@1.0.0/depsinfo.ts
+            ↳ https://deno.land/x/depsinfo@1.0.2/deps/cliffy_command.ts
+              ↳ https://deno.land/x/depsinfo@1.0.2/depsinfo.ts
     https://deno.land/x/cliffy@v0.25.6, first included from:
-      ↳ https://deno.land/x/depsinfo@1.0.0/deps/cliffy_command.ts
-        ↳ https://deno.land/x/depsinfo@1.0.0/depsinfo.ts
+      ↳ https://deno.land/x/depsinfo@1.0.2/deps/cliffy_command.ts
+        ↳ https://deno.land/x/depsinfo@1.0.2/depsinfo.ts
 ```
 
 Under "Dependencies" section it shows the summary of direct depenencies of a script. Colums are:
@@ -47,15 +47,15 @@ Under "Unique libraries used" section the tool shows base url of dependencies wi
 
 The tool runs `deno info --json <file-or-url>` for you, thus it requires `--allow-run=deno`. If you feel super paranoid about it. You can feed the output of `deno info --json` to the script yourself by specifying `-` as input. E.g.:
 ```sh
-deno info --json https://deno.land/x/depsinfo@1.0.0/depsinfo.ts | deno run https://deno.land/x/depsinfo@1.0.0/depsinfo.ts -
+deno info --json https://deno.land/x/depsinfo/depsinfo.ts | deno run https://deno.land/x/depsinfo/depsinfo.ts -
 ```
 
 ## Installation
 
 Deno provides a helper to install a script as an executable: https://deno.land/manual@v1.29.1/tools/script_installer.
 
-You can of course install depsinfo that way, just run:
+You can of course install latest version of depsinfo that way, just run:
 
 ```sh
-deno install --allow-run=deno https://deno.land/x/depsinfo@1.0.0/depsinfo.ts
+deno install -f --allow-run=deno https://deno.land/x/depsinfo/depsinfo.ts
 ```

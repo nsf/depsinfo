@@ -32,6 +32,7 @@ interface DenoInfo {
     specifier: string;
   }[];
   roots: string[];
+  redirects?: Record<string, string>;
 }
 
 type DenoModule = DenoInfo["modules"][0];
@@ -107,6 +108,17 @@ function collectUniqueSpecifiers(
   }
 }
 
+function followRedirects(
+  redirects: Record<string, string> | undefined,
+  rname: string,
+): string {
+  if (!redirects) return rname;
+  while (redirects[rname]) {
+    rname = redirects[rname];
+  }
+  return rname;
+}
+
 let data: DenoInfo = { modules: [], roots: [] };
 if (args[0] === "-") {
   data = JSON.parse(
@@ -144,7 +156,8 @@ for (const m of data.modules) {
   }
   modMap.set(m.specifier, m);
 }
-for (const rname of data.roots) {
+for (let rname of data.roots) {
+  rname = followRedirects(data.redirects, rname);
   const selflib = extractLib(rname);
   const r = modMap.get(rname);
   if (!r) continue;
