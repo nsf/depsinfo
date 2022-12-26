@@ -11,7 +11,7 @@ deno run https://deno.land/x/depsinfo/depsinfo.ts https://deno.land/x/depsinfo/d
 Here's the output:
 
 ```
-https://deno.land/x/depsinfo@1.0.2/depsinfo.ts
+https://deno.land/x/depsinfo@1.0.3/depsinfo.ts
 
   Dependencies:
     contributed  isolated  shared   specifier
@@ -27,11 +27,11 @@ https://deno.land/x/depsinfo@1.0.2/depsinfo.ts
       ↳ https://deno.land/x/cliffy@v0.25.6/command/deps.ts
         ↳ https://deno.land/x/cliffy@v0.25.6/command/command.ts
           ↳ https://deno.land/x/cliffy@v0.25.6/command/mod.ts
-            ↳ https://deno.land/x/depsinfo@1.0.2/deps/cliffy_command.ts
-              ↳ https://deno.land/x/depsinfo@1.0.2/depsinfo.ts
+            ↳ https://deno.land/x/depsinfo@1.0.3/deps/cliffy_command.ts
+              ↳ https://deno.land/x/depsinfo@1.0.3/depsinfo.ts
     https://deno.land/x/cliffy@v0.25.6, first included from:
-      ↳ https://deno.land/x/depsinfo@1.0.2/deps/cliffy_command.ts
-        ↳ https://deno.land/x/depsinfo@1.0.2/depsinfo.ts
+      ↳ https://deno.land/x/depsinfo@1.0.3/deps/cliffy_command.ts
+        ↳ https://deno.land/x/depsinfo@1.0.3/depsinfo.ts
 ```
 
 Under "Dependencies" section it shows the summary of direct depenencies of a script. Colums are:
@@ -57,5 +57,5 @@ Deno provides a helper to install a script as an executable: https://deno.land/m
 You can of course install latest version of depsinfo that way, just run:
 
 ```sh
-deno install -f --allow-run=deno https://deno.land/x/depsinfo/depsinfo.ts
+deno install -rf --allow-run=deno https://deno.land/x/depsinfo/depsinfo.ts
 ```

@@ -12,7 +12,7 @@ output of "deno info --json <file-or-url>" command.
 
 const { args } = await new Command()
   .name("depsinfo")
-  .version("1.0.0")
+  .version("1.0.3")
   .description(description)
   .arguments("<file-or-url>")
   .parse();
