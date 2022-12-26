@@ -32,8 +32,6 @@ https://deno.land/x/depsinfo@1.0.0/depsinfo.ts
     https://deno.land/x/cliffy@v0.25.6, first included from:
       ↳ https://deno.land/x/depsinfo@1.0.0/deps/cliffy_command.ts
         ↳ https://deno.land/x/depsinfo@1.0.0/depsinfo.ts
-    https://deno.land/x/depsinfo@1.0.0, first included from:
-      ↳ https://deno.land/x/depsinfo@1.0.0/depsinfo.ts
 ```
 
 Under "Dependencies" section it shows the summary of direct depenencies of a script. Colums are:

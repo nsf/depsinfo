@@ -145,6 +145,7 @@ for (const m of data.modules) {
   modMap.set(m.specifier, m);
 }
 for (const rname of data.roots) {
+  const selflib = extractLib(rname);
   const r = modMap.get(rname);
   if (!r) continue;
   const visited = new Set<string>();
@@ -191,6 +192,7 @@ for (const rname of data.roots) {
   const uniqueLibs = new Map<string, string[]>();
   collectUniqueSpecifiers(uniqueLibs, modMap, rname, [rname]);
   for (const key of Array.from(uniqueLibs.keys()).sort()) {
+    if (key === selflib) continue;
     const val = uniqueLibs.get(key)!;
     console.log(`    ${prettyPrintLib(key)}, first included from:`);
     for (let i = val.length - 1; i >= 0; i--) {
